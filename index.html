@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Обучающая игра о правильном питании - изучайте калории, белки, углеводы, жиры и витамины в увлекательной форме">
+    <title>Nutrition Quest - Путешествие в мир питания</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <!-- Phaser 3 from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+
+    <!-- Data files -->
+    <script src="src/data/nutrients.js"></script>
+    <script src="src/data/foods.js"></script>
+    <script src="src/data/questions.js"></script>
+    <script src="src/data/educational.js"></script>
+
+    <!-- Utils -->
+    <script src="src/utils/DataManager.js"></script>
+    <script src="src/utils/ProgressManager.js"></script>
+
+    <!-- Components -->
+    <script src="src/components/Button.js"></script>
+    <script src="src/components/Card.js"></script>
+    <script src="src/components/Dialog.js"></script>
+    <script src="src/components/ProgressBar.js"></script>
+
+    <!-- Scenes -->
+    <script src="src/scenes/BootScene.js"></script>
+    <script src="src/scenes/MenuScene.js"></script>
+    <script src="src/scenes/LevelSelectScene.js"></script>
+    <script src="src/scenes/ReferenceScene.js"></script>
+    <script src="src/scenes/TrackerScene.js"></script>
+
+    <!-- Level Scenes -->
+    <script src="src/scenes/levels/Level1_Calories.js"></script>
+    <script src="src/scenes/levels/Level2_Proteins.js"></script>
+    <script src="src/scenes/levels/Level3_Carbs.js"></script>
+    <script src="src/scenes/levels/Level4_Fats.js"></script>
+    <script src="src/scenes/levels/Level5_Vitamins.js"></script>
+    <script src="src/scenes/levels/Level6_Balance.js"></script>
+    <script src="src/scenes/levels/Level7_Needs.js"></script>
+    <script src="src/scenes/levels/Level8_Digestion.js"></script>
+
+    <!-- Config and Main -->
+    <script src="src/config.js"></script>
+    <script src="src/main.js"></script>
+</body>
+</html>
