@@ -10,27 +10,64 @@
 <body>
     <div id="game-container"></div>
 
+    <!-- Loading indicator -->
+    <div id="loading-indicator" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; font-family: Arial, sans-serif; z-index: 1000;">
+        <h1 style="font-size: 48px; margin-bottom: 20px;">🎮 Nutrition Quest</h1>
+        <p style="font-size: 24px; margin-bottom: 10px;">Загрузка игры...</p>
+        <div style="width: 300px; height: 30px; background: rgba(255,255,255,0.2); border-radius: 15px; overflow: hidden; margin: 20px auto;">
+            <div id="loading-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #4CAF50, #8BC34A); transition: width 0.3s;"></div>
+        </div>
+        <p id="loading-status" style="font-size: 16px; color: #ddd;">Проверка компонентов...</p>
+    </div>
+
+    <!-- Helper function to update loading progress -->
+    <script>
+        function updateProgress(percent, status) {
+            const bar = document.getElementById('loading-bar');
+            const statusEl = document.getElementById('loading-status');
+            if (bar) bar.style.width = percent + '%';
+            if (statusEl) statusEl.textContent = status;
+        }
+
+        // Global error handler
+        window.addEventListener('error', function(e) {
+            console.error('❌ JavaScript Error:', e.error);
+            const indicator = document.getElementById('loading-indicator');
+            if (indicator) {
+                indicator.innerHTML = '<div style="color: white; text-align: center; padding: 50px; font-family: Arial;"><h1 style="color: #ff6b6b;">⚠️ Ошибка</h1><p style="font-size: 20px;">Произошла ошибка при загрузке игры</p><p style="font-size: 16px; color: #ddd; margin-top: 20px;">' + e.message + '</p><p style="font-size: 14px; margin-top: 10px;">Откройте консоль браузера (F12) для подробностей</p><button onclick="location.reload()" style="margin-top: 20px; padding: 10px 30px; font-size: 18px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">Перезагрузить</button></div>';
+            }
+            return false;
+        });
+
+        updateProgress(5, 'Загрузка Phaser...');
+    </script>
+
     <!-- Phaser 3 from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+    <script>updateProgress(15, 'Загрузка конфигурации...');</script>
 
     <!-- Config - Must load FIRST as it defines COLORS, FONTS, etc. used by other files -->
     <script src="src/config.js"></script>
+    <script>updateProgress(25, 'Загрузка данных...');</script>
 
     <!-- Data files -->
     <script src="src/data/nutrients.js"></script>
     <script src="src/data/foods.js"></script>
     <script src="src/data/questions.js"></script>
     <script src="src/data/educational.js"></script>
+    <script>updateProgress(40, 'Загрузка утилит...');</script>
 
     <!-- Utils -->
     <script src="src/utils/DataManager.js"></script>
     <script src="src/utils/ProgressManager.js"></script>
+    <script>updateProgress(50, 'Загрузка компонентов...');</script>
 
     <!-- Components -->
     <script src="src/components/Button.js"></script>
     <script src="src/components/Card.js"></script>
     <script src="src/components/Dialog.js"></script>
     <script src="src/components/ProgressBar.js"></script>
+    <script>updateProgress(65, 'Загрузка сцен...');</script>
 
     <!-- Scenes -->
     <script src="src/scenes/BootScene.js"></script>
@@ -38,6 +75,7 @@
     <script src="src/scenes/LevelSelectScene.js"></script>
     <script src="src/scenes/ReferenceScene.js"></script>
     <script src="src/scenes/TrackerScene.js"></script>
+    <script>updateProgress(80, 'Загрузка уровней...');</script>
 
     <!-- Level Scenes -->
     <script src="src/scenes/levels/Level1_Calories.js"></script>
@@ -48,6 +86,7 @@
     <script src="src/scenes/levels/Level6_Balance.js"></script>
     <script src="src/scenes/levels/Level7_Needs.js"></script>
     <script src="src/scenes/levels/Level8_Digestion.js"></script>
+    <script>updateProgress(95, 'Инициализация игры...');</script>
 
     <!-- Main - Initialize game -->
     <script src="src/main.js"></script>
