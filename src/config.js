@@ -1,56 +1,7 @@
 /**
- * Конфигурация Phaser игры
+ * Глобальные константы игры
+ * GameConfig определяется в main.js после загрузки всех сцен
  */
-const GameConfig = {
-    type: Phaser.AUTO,
-    parent: 'game-container',
-    backgroundColor: '#f0f8ff',
-    scale: {
-        mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH,
-        width: 1280,
-        height: 720,
-        min: {
-            width: 320,
-            height: 568
-        },
-        max: {
-            width: 1920,
-            height: 1080
-        }
-    },
-    physics: {
-        default: 'arcade',
-        arcade: {
-            gravity: { y: 0 },
-            debug: false
-        }
-    },
-    scene: [
-        BootScene,
-        MenuScene,
-        LevelSelectScene,
-        Level1_Calories,
-        Level2_Proteins,
-        Level3_Carbs,
-        Level4_Fats,
-        Level5_Vitamins,
-        Level6_Balance,
-        Level7_Needs,
-        Level8_Digestion,
-        ReferenceScene,
-        TrackerScene
-    ],
-    // Настройки для мобильных устройств
-    input: {
-        activePointers: 3 // Поддержка мультитач
-    },
-    render: {
-        pixelArt: false,
-        antialias: true,
-        roundPixels: true
-    }
-};
 
 // Глобальные константы игры
 const COLORS = {
