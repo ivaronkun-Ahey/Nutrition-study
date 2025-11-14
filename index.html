@@ -13,6 +13,9 @@
     <!-- Phaser 3 from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
 
+    <!-- Config - Must load FIRST as it defines COLORS, FONTS, etc. used by other files -->
+    <script src="src/config.js"></script>
+
     <!-- Data files -->
     <script src="src/data/nutrients.js"></script>
     <script src="src/data/foods.js"></script>
@@ -28,9 +31,6 @@
     <script src="src/components/Card.js"></script>
     <script src="src/components/Dialog.js"></script>
     <script src="src/components/ProgressBar.js"></script>
-
-    <!-- Config - Must load before scenes that use COLORS, FONTS, etc. -->
-    <script src="src/config.js"></script>
 
     <!-- Scenes -->
     <script src="src/scenes/BootScene.js"></script>
